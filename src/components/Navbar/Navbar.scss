@@ -1,0 +1,85 @@
+@import '../../styles/breakpoints';
+@import '../../styles/variables.scss';
+
+*{
+    text-decoration: none;
+}
+
+.nav{
+    background-color: $white;
+    align-items: center;
+    display: grid;
+    grid-template-rows: 6fr 2fr;
+    position: absolute;
+    height: 100px;
+    width: 100vw;
+    z-index: 1;
+    box-shadow: 5px 5px 10px $black-transparent;
+    @media(max-width: $tablet) {
+      grid-template-areas:
+        'logo'
+        'links' 'links';
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      height: 100px;
+      justify-items: center;
+    }
+    @media(max-width: $mobile-sm) {
+      padding: 0 50px;
+    }
+  }
+
+  .links {
+    position: relative;
+    top: -140px;
+    grid-area: links;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+
+    @media(max-width: $tablet) {
+      justify-self: start;
+      left: 10em;
+    }
+    @media(max-width: $mobile-sm) {
+      justify-self: start;
+      left: 2em;
+    }
+  }
+  
+  .link {
+    color: $grey-light;
+    font-size: 18px;
+
+    @media(max-width: $tablet) {
+      font-size: 14px;
+    }
+    @media(max-width: $mobile-sm) {
+      font-size: 14px;
+    }
+  }
+
+  .link:hover {
+    color: $green-medium;
+  }
+
+  .logo{
+    width: 8em;
+    position: relative;
+    left: 30px;
+    top: -40px;
+
+    @media(max-width: $tablet){
+      width: 6em;
+      left: -10em;
+    }
+
+    @media(max-width: $mobile-sm){
+      width: 4em;
+      left: -14em;
+    }
+}
+
+.logo:hover {
+  cursor: pointer;
+}
