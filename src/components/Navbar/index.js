@@ -1,6 +1,7 @@
 import  './Navbar.scss'
 import '../../styles/breakpoints.scss';
 import { ReactComponent as Logo } from '../../assets/Logo.svg';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
@@ -8,17 +9,28 @@ export default function Navbar() {
     {...iconProps}
     } */
 
+    const routes = [{
+        label: 'Home',
+        to: '/'
+      },
+      {
+        label: 'Meus Pets',
+        to: '/meuspets'
+      }
+    ];
+
     return (
         <nav className='nav'>
             <Logo className='logo'/>
-            <div className='links'>
-                <a href='/' className='link'>INÍCIO</a>
-                <a href='/' className='link'>CONTATOS</a>
-                <a href='/' className='link'>MEUS PETS</a>
-                <a href='/' className='link'>PLANOS</a>
-                <a href='/' className='link'>LOGIN</a>
-                <a href='/' className='link'>CADASTRO</a>
-            </div>
+            <ul className='links'>
+                {routes.map((route,index) => (
+                    <li key={index}>
+                        <Link to={route.to} className='link'>
+                            {route.label}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </nav>
     )
 }
